@@ -48,6 +48,29 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>enforce-message-format</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireProperty>
+									<property>commitMessage</property>
+									<message>Commit message must follow standards.</message>
+									<regex>^feat:|^fix:|^chore:|^test:|^docs:|^build:|^ci:|^style:|^refactor:|^perf:</regex>
+									<regexMessage>Commit message must start with: feat:, fix:, chore:, test:, docs:, build:, ci:, style:, refactor:, perf:</regexMessage>
+								</requireProperty>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
