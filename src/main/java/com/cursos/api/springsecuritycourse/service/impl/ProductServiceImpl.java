@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
         Product product = new Product();
         product.setName(saveProduct.getName());
         product.setPrice(saveProduct.getPrice());
-        product.setStatus(Product.ProductStatus.ENABLE);
+        product.setStatus(Product.ProductStatus.ENABLED);
 
         Category category = new Category();
         category.setId(saveProduct.getCategoryId());

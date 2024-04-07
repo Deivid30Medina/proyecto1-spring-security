@@ -18,7 +18,7 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
     public static enum ProductStatus{
-        ENABLE, DISABLED;
+        ENABLED, DISABLED;
     }
 
     public Long getId() {
@@ -60,4 +60,6 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+
 }
