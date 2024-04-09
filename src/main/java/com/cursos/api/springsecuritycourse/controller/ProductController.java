@@ -29,7 +29,7 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/{prodcutId}")
+    @GetMapping("/{productId}")
     public ResponseEntity<Product> findAllById(@PathVariable Long productId){
         Optional<Product> product = productService.findAllById(productId);
         if (product.isPresent()){
