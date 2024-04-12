@@ -27,7 +27,7 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (role == null) return null;
         if (role.getPermissions() == null) return null;
-        role.getPermissions().stream()
+        return role.getPermissions().stream()
                 .map(each -> each.name())
                 .map(each -> new SimpleGrantedAuthority(each))
                 //.map(each ->{
@@ -35,7 +35,7 @@ public class User implements UserDetails {
                 //    return  new SimpleGrantedAuthority(permission)
                 //})
                 .collect(Collectors.toList());
-        return null;
+        
     }
 
     @Override
