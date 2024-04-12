@@ -1,0 +1,15 @@
+package com.cursos.api.springsecuritycourse.util;
+
+public enum RolePermission {
+    READ_ONE_PRODUCT,
+    READ_ALL_PRODUCTS,
+    CREATE_ONE_PRODUCT,
+    UPDATE_ONE_PRODUCT,
+    DISABLE_ONE_PRODUCT,
+    READ_ALL_CATEGORIES,
+    READ_ONE_CATEGORIES,
+    CREATE_ONE_CATEGORY,
+    UPDATE_ONE_CATEGORY,
+    DISABLE_ONE_CATEGORY,
+    READ_MY_PROFILE;
+}
