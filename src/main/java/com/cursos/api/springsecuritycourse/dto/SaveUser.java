@@ -7,11 +7,11 @@ import java.io.Serializable;
 public class SaveUser implements Serializable {
     @Size(min = 4)
     private String name;
-    @Size(min = 4)
+    @Size(min = 4, message = "El suuario debe tener minimo 4 caracteres")
     private String username;
     @Size(min = 8)
     private String password;
-    @Size(min = 4)
+    @Size(min = 8, message = "La clave debe ser minimo 8 digitos")
     private  String repeatPassword;
 
     public String getName() {

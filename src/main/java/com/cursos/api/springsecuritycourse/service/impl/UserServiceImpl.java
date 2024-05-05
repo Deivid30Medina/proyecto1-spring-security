@@ -11,8 +11,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.Optional;
+
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -26,11 +30,16 @@ public class UserServiceImpl implements UserService {
 
 
         User user = new User();
-        user.setName(newUser.getUsername());
+        user.setName(newUser.getName());
         user.setUsername(newUser.getUsername());
         user.setRole(Role.ROLE_CUSTOMER);
         user.setPassword(passwordEncoder.encode(newUser.getPassword()));
         return userRepository.save(user);
+    }
+
+    @Override
+    public Optional<User> finOneByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     private void validatePassword(SaveUser dto) {

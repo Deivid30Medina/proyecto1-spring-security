@@ -34,7 +34,8 @@ public class HttpSecurityConfig {
                     // Permitir acceso sin autenticación a las solicitudes HTTP POST a "/customers"
                     authReqConfig.requestMatchers(HttpMethod.POST,"/customers").permitAll();
                     // Permitir acceso sin autenticación a las solicitudes HTTP POST a "/auth/**"
-                    authReqConfig.requestMatchers(HttpMethod.POST,"/auth/**").permitAll();
+                    authReqConfig.requestMatchers(HttpMethod.GET,"/auth/validate-token").permitAll();
+                    authReqConfig.requestMatchers(HttpMethod.POST,"/auth/authenticate").permitAll();
                     // Requerir autenticación para todas las demás solicitudes HTTP
                     authReqConfig.anyRequest().authenticated();
                 })
